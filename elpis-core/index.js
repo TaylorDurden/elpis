@@ -2,6 +2,7 @@ const Koa = require('koa');
 const path = require('path');
 // compatibility for different OS path '/'
 const { sep } = path;
+const env = require('./env');
 
 module.exports = {
   start(options = {}) {
@@ -18,6 +19,10 @@ module.exports = {
     // business path
     app.businessPath = path.resolve(app.baseDir, `.${sep}app`);
     // console.log(app.businessPath);
+
+    // init environment
+    app.env = env();
+    console.log(`Current environment: ${app.env.get()}`);
 
     try {
       const port = process.env.PORT || 8080;
