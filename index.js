@@ -1,17 +1,3 @@
 const ElpisCore = require('./elpis-core');
 
 ElpisCore.start({ name: 'elpis' });
-// const Koa = require("koa");
-
-// const app = new Koa();
-
-// try {
-//   const port = process.env.PORT || 8080;
-//   const host = process.env.IP || "0.0.0.0";
-
-//   app.listen(port, host);
-
-//   console.log(`Server running on port: ${port}`);
-// } catch (error) {
-//   console.error(e);
-// }

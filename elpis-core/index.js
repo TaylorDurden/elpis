@@ -3,6 +3,7 @@ const path = require('path');
 // compatibility for different OS path '/'
 const { sep } = path;
 const env = require('./env');
+const loaders = require('./loaders');
 
 module.exports = {
   start(options = {}) {
@@ -24,6 +25,8 @@ module.exports = {
     app.env = env();
     console.log(`Current environment: ${app.env.get()}`);
 
+    // setup loaders
+    loaders.load(app);
     try {
       const port = process.env.PORT || 8080;
       const host = process.env.IP || '0.0.0.0';
